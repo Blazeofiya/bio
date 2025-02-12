@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blaze Wallick - Well-Being, Performance Coaching & Business Optimization</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and Base Styles */
+    /* Base Reset */
     * {
       margin: 0;
       padding: 0;
@@ -16,16 +16,31 @@
     body {
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: #041014;
       background: #f4f4f4;
     }
     a {
       color: inherit;
       text-decoration: none;
     }
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0; /* will become visible after animation */
+    }
     /* Header */
     header {
-      background: #007BFF;
+      background: #041014;
       color: #fff;
       padding: 1rem 0;
     }
@@ -52,24 +67,25 @@
       transition: color 0.3s ease;
     }
     nav ul li a:hover {
-      color: #cce6ff;
+      color: #2596be;
     }
     /* Main Content */
     main {
       padding: 2rem 1rem;
       max-width: 1200px;
-      margin: auto;
+      margin: 2rem auto;
       background: #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 8px;
     }
     section {
       margin-bottom: 2rem;
     }
     section h2 {
-      color: #007BFF;
+      color: #145369;
       margin-bottom: 1rem;
       font-size: 2rem;
-      border-bottom: 2px solid #007BFF;
+      border-bottom: 2px solid #145369;
       display: inline-block;
       padding-bottom: 0.2rem;
     }
@@ -77,8 +93,19 @@
       margin-bottom: 1rem;
       line-height: 1.8;
     }
+    /* Profile Picture */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #2596be;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    /* Call-to-Action Button */
     .cta-button {
-      background: #007BFF;
+      background: #2596be;
       color: #fff;
       padding: 0.8rem 1.5rem;
       text-decoration: none;
@@ -87,17 +114,17 @@
       transition: background 0.3s ease;
     }
     .cta-button:hover {
-      background: #0056b3;
+      background: #145369;
     }
     /* Footer */
     footer {
-      background: #333;
+      background: #041014;
       color: #fff;
       padding: 1rem 0;
       text-align: center;
     }
     footer a {
-      color: #fff;
+      color: #2596be;
       text-decoration: underline;
     }
     /* Responsive */
@@ -114,7 +141,7 @@
 </head>
 <body>
   <!-- Header Section -->
-  <header>
+  <header class="fade-in">
     <div class="container">
       <h1>Blaze Wallick</h1>
       <nav>
@@ -129,34 +156,36 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Hero / Intro -->
-    <section id="hero">
+    <!-- Hero / Intro Section -->
+    <section id="hero" class="fade-in" style="animation-delay: 0.2s;">
       <h2>Reclaim Control, Balance, and Efficiency</h2>
       <p>I empower professionals and business leaders to reclaim control, balance, and efficiency in their lives. Through personalized well-being and performance coaching, innovative productivity strategies, and business optimization consulting, I guide you to eliminate distractions, streamline your routines, and focus on what truly matters—both at work and at home.</p>
     </section>
 
-    <!-- About / My Journey -->
-    <section id="about">
+    <!-- About / My Journey Section -->
+    <section id="about" class="fade-in" style="animation-delay: 0.4s;">
       <h2>My Journey</h2>
-      <p>Growing up, I watched my father work tirelessly, often seven days a week, driven by the desire to provide a positive future for our family. Despite the challenges we faced, his commitment instilled in me values of forgiveness, gratitude, and the importance of balance. Whether we were camping, building fires, or simply tossing a football at the park, he taught me that life is about more than just work—it’s about connection, growth, and living with intention.</p>
+      <!-- Profile Picture -->
+      <img src="profile.jpg" alt="Profile Picture of Blaze Wallick" class="profile-pic" />
+      <p>Growing up, I watched my father work tirelessly—often seven days a week—driven by the desire to provide a positive future for our family. Despite the challenges we faced, his commitment instilled in me values of forgiveness, gratitude, and the importance of balance. Whether we were camping, building fires, or simply tossing a football at the park, he taught me that life is about more than just work—it’s about connection, growth, and living with intention.</p>
       <p>After earning a business degree from the University of Central Florida and spending a transformative year in Barcelona—where I embraced a culture that champions work-life balance—I returned to the fast-paced corporate world. I dabbled in software sales and insurance underwriting, where I quickly learned that efficiency could be improved with small, thoughtful changes. I became passionate about automating mundane tasks and streamlining processes to make work simpler and more fulfilling.</p>
     </section>
 
-    <!-- Turning Point -->
-    <section id="turning-point">
+    <!-- Turning Point Section -->
+    <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring the zen philosophies during a month-long stay in Tokyo.</p>
+      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
     </section>
 
-    <!-- Philosophy & How I Can Help -->
-    <section id="philosophy">
+    <!-- Philosophy & How I Can Help Section -->
+    <section id="philosophy" class="fade-in" style="animation-delay: 0.8s;">
       <h2>My Philosophy & How I Can Help You</h2>
       <p>These experiences taught me that true success comes from living a balanced, intentional life. With the vast resources available through AI and modern technology, I believe that anyone can learn new skills and make small, transformative changes every day. My journey—from a hectic corporate environment to a life of proactive health and efficiency—drives my passion for helping you design a life where you can be both productive and present.</p>
       <p>Whether you’re looking to improve your personal well-being, boost productivity at work, or optimize your business operations, I’m here to provide a personalized, hands-on approach. I help you cut through the noise, limit overthinking, and focus on strategies that let you spend more time with family, invest in your health, and ultimately, live the life you envision.</p>
     </section>
 
-    <!-- Contact / Call to Action -->
-    <section id="contact">
+    <!-- Contact / Call to Action Section -->
+    <section id="contact" class="fade-in" style="animation-delay: 1s;">
       <h2>Let’s Connect</h2>
       <p>If you’re ready to reclaim control over your time and energy, and to focus on what truly matters, let’s start a conversation. I’m here to help you make meaningful, lasting changes—one small step at a time.</p>
       <a class="cta-button" href="mailto:blaze@blazewallick.com">Contact Me</a>
@@ -164,7 +193,7 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="fade-in" style="animation-delay: 1.2s;">
     <p>&copy; 2025 Blaze Wallick. All Rights Reserved.</p>
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
