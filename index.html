@@ -16,8 +16,8 @@
     body {
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
-      color: #041014;
-      background: #f4f4f4;
+      background: #041014;
+      color: #fff;
     }
     a {
       color: inherit;
@@ -36,13 +36,13 @@
     }
     .fade-in {
       animation: fadeInUp 1s ease-out forwards;
-      opacity: 0; /* will become visible after animation */
+      opacity: 0;
     }
     /* Header */
     header {
       background: #041014;
-      color: #fff;
       padding: 1rem 0;
+      border-bottom: 2px solid #2596be;
     }
     header .container {
       max-width: 1200px;
@@ -55,6 +55,7 @@
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      color: #fff;
     }
     nav ul {
       list-style: none;
@@ -62,30 +63,69 @@
       gap: 1rem;
     }
     nav ul li a {
-      color: #fff;
       font-weight: 600;
       transition: color 0.3s ease;
+      color: #fff;
     }
     nav ul li a:hover {
       color: #2596be;
     }
+    /* Slideshow Styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      height: 400px;
+      margin: 0 auto 2rem;
+      overflow: hidden;
+      border: 2px solid #2596be;
+      border-radius: 8px;
+    }
+    .slide {
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(4, 16, 20, 0.7);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      color: #2596be;
+    }
+    /* Fade Animation for Slides */
+    .fade {
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
     /* Main Content */
     main {
-      padding: 2rem 1rem;
       max-width: 1200px;
       margin: 2rem auto;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      background: #145369;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     section {
       margin-bottom: 2rem;
     }
     section h2 {
-      color: #145369;
-      margin-bottom: 1rem;
       font-size: 2rem;
-      border-bottom: 2px solid #145369;
+      color: #2596be;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #2596be;
       display: inline-block;
       padding-bottom: 0.2rem;
     }
@@ -93,25 +133,14 @@
       margin-bottom: 1rem;
       line-height: 1.8;
     }
-    /* Profile Picture */
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #2596be;
-      margin-bottom: 1rem;
-      animation: fadeInUp 1s ease-out forwards;
-    }
     /* Call-to-Action Button */
     .cta-button {
       background: #2596be;
-      color: #fff;
+      color: #041014;
       padding: 0.8rem 1.5rem;
-      text-decoration: none;
       border-radius: 5px;
-      display: inline-block;
       transition: background 0.3s ease;
+      font-weight: 600;
     }
     .cta-button:hover {
       background: #145369;
@@ -119,9 +148,9 @@
     /* Footer */
     footer {
       background: #041014;
-      color: #fff;
       padding: 1rem 0;
       text-align: center;
+      border-top: 2px solid #2596be;
     }
     footer a {
       color: #2596be;
@@ -135,6 +164,9 @@
       nav ul {
         flex-direction: column;
         align-items: center;
+      }
+      .slideshow-container {
+        height: 250px;
       }
     }
   </style>
@@ -154,48 +186,28 @@
     </div>
   </header>
 
+  <!-- Hero Section with Slideshow -->
+  <section id="hero" class="fade-in" style="animation-delay: 0.2s;">
+    <div class="slideshow-container" id="slideshow">
+      <div class="slide fade">
+        <img src="image1.jpg" alt="Slide 1">
+        <div class="caption">Empowering Transformation</div>
+      </div>
+      <div class="slide fade">
+        <img src="image2.jpg" alt="Slide 2">
+        <div class="caption">Balanced Living & Productivity</div>
+      </div>
+      <div class="slide fade">
+        <img src="image3.jpg" alt="Slide 3">
+        <div class="caption">Innovative Strategies for Success</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Main Content -->
   <main>
-    <!-- Hero / Intro Section -->
-    <section id="hero" class="fade-in" style="animation-delay: 0.2s;">
-      <h2>Reclaim Control, Balance, and Efficiency</h2>
-      <p>I empower professionals and business leaders to reclaim control, balance, and efficiency in their lives. Through personalized well-being and performance coaching, innovative productivity strategies, and business optimization consulting, I guide you to eliminate distractions, streamline your routines, and focus on what truly matters—both at work and at home.</p>
-    </section>
-
     <!-- About / My Journey Section -->
     <section id="about" class="fade-in" style="animation-delay: 0.4s;">
       <h2>My Journey</h2>
-      <!-- Profile Picture -->
-      <img src="profile.jpg" alt="Profile Picture of Blaze Wallick" class="profile-pic" />
       <p>Growing up, I watched my father work tirelessly—often seven days a week—driven by the desire to provide a positive future for our family. Despite the challenges we faced, his commitment instilled in me values of forgiveness, gratitude, and the importance of balance. Whether we were camping, building fires, or simply tossing a football at the park, he taught me that life is about more than just work—it’s about connection, growth, and living with intention.</p>
-      <p>After earning a business degree from the University of Central Florida and spending a transformative year in Barcelona—where I embraced a culture that champions work-life balance—I returned to the fast-paced corporate world. I dabbled in software sales and insurance underwriting, where I quickly learned that efficiency could be improved with small, thoughtful changes. I became passionate about automating mundane tasks and streamlining processes to make work simpler and more fulfilling.</p>
-    </section>
-
-    <!-- Turning Point Section -->
-    <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
-      <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
-    </section>
-
-    <!-- Philosophy & How I Can Help Section -->
-    <section id="philosophy" class="fade-in" style="animation-delay: 0.8s;">
-      <h2>My Philosophy & How I Can Help You</h2>
-      <p>These experiences taught me that true success comes from living a balanced, intentional life. With the vast resources available through AI and modern technology, I believe that anyone can learn new skills and make small, transformative changes every day. My journey—from a hectic corporate environment to a life of proactive health and efficiency—drives my passion for helping you design a life where you can be both productive and present.</p>
-      <p>Whether you’re looking to improve your personal well-being, boost productivity at work, or optimize your business operations, I’m here to provide a personalized, hands-on approach. I help you cut through the noise, limit overthinking, and focus on strategies that let you spend more time with family, invest in your health, and ultimately, live the life you envision.</p>
-    </section>
-
-    <!-- Contact / Call to Action Section -->
-    <section id="contact" class="fade-in" style="animation-delay: 1s;">
-      <h2>Let’s Connect</h2>
-      <p>If you’re ready to reclaim control over your time and energy, and to focus on what truly matters, let’s start a conversation. I’m here to help you make meaningful, lasting changes—one small step at a time.</p>
-      <a class="cta-button" href="mailto:blaze@blazewallick.com">Contact Me</a>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="fade-in" style="animation-delay: 1.2s;">
-    <p>&copy; 2025 Blaze Wallick. All Rights Reserved.</p>
-    <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
-  </footer>
-</body>
-</html>
+      <p>After earning a business degree from the University of Central Florida and spending a transformative year in Barcelona—
