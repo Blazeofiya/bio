@@ -57,10 +57,15 @@
       margin-bottom: 0.5rem;
       color: #fff;
     }
+    /* Navigation */
+    nav {
+      width: 100%;
+    }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
+      justify-content: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -69,6 +74,15 @@
     }
     nav ul li a:hover {
       color: #2596be;
+    }
+    /* Hamburger Menu (Mobile Only) */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
     }
     /* Slideshow Styles */
     .slideshow-container {
@@ -163,11 +177,18 @@
       header h1 {
         font-size: 2rem;
       }
+      .hamburger {
+        display: block;
+      }
       nav ul {
-        flex-direction: row; /* keep buttons in a row */
-        flex-wrap: wrap;    /* allow wrapping if needed */
-        justify-content: center;
-        gap: 0.5rem;       /* slightly reduce gap for smaller screens */
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      nav ul.open {
+        display: flex;
       }
       .slideshow-container {
         height: 250px;
@@ -180,6 +201,8 @@
   <header class="fade-in">
     <div class="container">
       <h1>Blaze Wallick</h1>
+      <!-- Hamburger menu button for mobile -->
+      <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -245,8 +268,9 @@
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Slideshow -->
+  <!-- JavaScript for Slideshow and Hamburger Toggle -->
   <script>
+    // Slideshow
     let slideIndex = 0;
     showSlides();
     function showSlides() {
@@ -260,6 +284,12 @@
       slides[slideIndex - 1].style.display = "block";
       setTimeout(showSlides, 5000); // Change slide every 5 seconds
     }
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
