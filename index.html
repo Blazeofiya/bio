@@ -41,11 +41,11 @@
       max-width: 1200px;
       margin: auto;
       padding: 0 1rem;
+      display: flex;
       /* Desktop: Column layout */
       flex-direction: column;
       align-items: center;
       position: relative;
-      display: flex;
     }
     header h1 {
       font-size: 2.5rem;
@@ -54,12 +54,16 @@
       margin-bottom: 0.5rem;
     }
     /* Desktop Navigation */
-    nav { display: block; }
+    nav {
+      margin-top: 0.2rem;
+    }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin: 0;
+      padding: 0;
     }
     nav ul li a {
       font-weight: 600;
@@ -81,7 +85,7 @@
       font-size: 2rem;
       cursor: pointer;
     }
-    /* Mobile Dropdown Menu & Mobile Adjustments */
+    /* Mobile Dropdown Menu & Adjustments */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: row;
@@ -100,6 +104,7 @@
         top: calc(100% + 5px);
         right: 1rem;
         width: 200px;
+        max-width: 200px;
         background: #2596be;
         border: 2px solid #2596be;
         border-radius: 5px;
@@ -117,12 +122,6 @@
         border-bottom: 1px solid #145369;
       }
       nav ul li:last-child { border-bottom: none; }
-      /* Adjust slideshow on mobile: use aspect ratio instead of fixed height */
-      .slideshow-container {
-          z-index: 1;
-          height: auto;
-          aspect-ratio: 16 / 9;
-      }
       /* Reduce header padding on mobile */
       header { padding: 0.8rem 0; }
       /* Adjust scroll offset for mobile */
@@ -133,7 +132,7 @@
       position: relative;
       max-width: 100%;
       height: 600px; /* Taller image */
-      margin: 0 auto; /* Removed bottom margin */
+      margin: 0 auto; /* No extra bottom margin */
       overflow: hidden;
       border: 2px solid #2596be;
       border-radius: 8px;
