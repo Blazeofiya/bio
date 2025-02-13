@@ -123,13 +123,17 @@
     }
     /* Main Content */
     main {
-      /* Increased top padding so the fixed header won’t cover content */
-      padding: 2.5rem 1rem 2rem;
+      /* Increased top padding on desktop for extra space below the header */
+      padding: 3rem 1rem 2rem;
       max-width: 1200px;
       margin: auto;
       background: #145369;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
+    }
+    /* On mobile, reduce the top padding to remove the extra gap */
+    @media (max-width: 768px) {
+      main { padding: 1rem 1rem 2rem; }
     }
     section { 
       margin-bottom: 2rem;
