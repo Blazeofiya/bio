@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -59,6 +59,7 @@
       list-style: none;
       display: flex;
       gap: 1rem;
+      justify-content: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -80,9 +81,8 @@
       font-size: 2rem;
       cursor: pointer;
     }
-    /* Mobile Dropdown Menu */
+    /* Mobile Dropdown Menu & Mobile Adjustments */
     @media (max-width: 768px) {
-      /* Switch header container to row with space-between */
       .header-container {
         flex-direction: row;
         justify-content: space-between;
@@ -94,10 +94,7 @@
         font-size: 2rem;
         margin-bottom: 0;
       }
-      .hamburger {
-        display: block;
-        /* As a flex item, no need for absolute positioning now */
-      }
+      .hamburger { display: block; }
       nav {
         position: absolute;
         top: calc(100% + 5px);
@@ -120,8 +117,16 @@
         border-bottom: 1px solid #145369;
       }
       nav ul li:last-child { border-bottom: none; }
-      /* Adjust slideshow on mobile */
-      .slideshow-container { z-index: 1; height: 250px; }
+      /* Adjust slideshow on mobile: use aspect ratio instead of fixed height */
+      .slideshow-container {
+          z-index: 1;
+          height: auto;
+          aspect-ratio: 16 / 9;
+      }
+      /* Reduce header padding on mobile */
+      header { padding: 0.8rem 0; }
+      /* Adjust scroll offset for mobile */
+      section { scroll-margin-top: 100px; }
     }
     /* Slideshow Styles */
     .slideshow-container {
@@ -156,7 +161,11 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
     }
-    section { margin-bottom: 2rem; }
+    section { 
+      margin-bottom: 2rem;
+      /* Ensure anchor targets are not hidden by the fixed header */
+      scroll-margin-top: 120px;
+    }
     section h2 {
       color: #2596be;
       margin-bottom: 1rem;
