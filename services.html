@@ -123,21 +123,20 @@
     }
     /* Main Content */
     main {
-      /* Increased top padding on desktop for extra space below the header */
-      padding: 3rem 1rem 2rem;
+      /* Extra top padding added (approx 0.5" extra, i.e. +3rem) */
+      padding: 6rem 1rem 2rem;
       max-width: 1200px;
       margin: auto;
       background: #145369;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
     }
-    /* On mobile, reduce the top padding to remove the extra gap */
+    /* On mobile, top padding adjusted to 3rem */
     @media (max-width: 768px) {
-      main { padding: 1rem 1rem 2rem; }
+      main { padding: 3rem 1rem 2rem; }
     }
     section { 
       margin-bottom: 2rem;
-      /* Ensure anchor targets are not hidden by the fixed header */
       scroll-margin-top: 120px;
     }
     section h2 {
@@ -269,7 +268,7 @@
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top, and Slideshow -->
+  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top -->
   <script>
     // Hamburger menu toggle for mobile
     const hamburger = document.querySelector('.hamburger');
@@ -300,22 +299,6 @@
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-    
-    // Slideshow functionality (in case you add slides later)
-    let slideIndex = 0;
-    function showSlides() {
-      const slides = document.getElementsByClassName("slide");
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      if(slides[slideIndex - 1]) {
-        slides[slideIndex - 1].style.display = "block";
-      }
-      setTimeout(showSlides, 5000);
-    }
-    showSlides();
   </script>
 </body>
 </html>
