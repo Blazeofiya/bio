@@ -53,12 +53,16 @@
       margin-bottom: 0.5rem;
     }
     /* Desktop Navigation */
-    nav { display: block; }
+    nav {
+      margin-top: 0.2rem;
+    }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin: 0;
+      padding: 0;
     }
     nav ul li a {
       font-weight: 600;
@@ -80,7 +84,7 @@
       font-size: 2rem;
       cursor: pointer;
     }
-    /* Mobile Dropdown Menu & Mobile Adjustments */
+    /* Mobile Dropdown Menu & Adjustments */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: row;
@@ -99,6 +103,7 @@
         top: calc(100% + 5px);
         right: 1rem;
         width: 200px;
+        max-width: 200px;
         background: #2596be;
         border: 2px solid #2596be;
         border-radius: 5px;
@@ -268,7 +273,7 @@
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top -->
+  <!-- JavaScript for Hamburger Menu, Active Links, and Back-to-Top -->
   <script>
     // Hamburger menu toggle for mobile
     const hamburger = document.querySelector('.hamburger');
