@@ -4,46 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services - Blaze Wallick Coaching</title>
+  <meta name="description" content="Explore the one-on-one coaching services offered by Blaze Wallick Coaching including personalized fitness, habit transformation, and budgeting advice.">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
+    /* Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
       background: #041014;
       color: #fff;
+      padding-top: 100px; /* To account for fixed header */
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
     /* Animations */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .fade-in {
-      animation: fadeInUp 1s ease-out forwards;
-      opacity: 0;
-    }
-    /* Header (Desktop defaults) */
+    .fade-in { animation: fadeInUp 1s ease-out forwards; opacity: 0; }
+    /* Fixed Header */
     header {
       background: #041014;
       padding: 1rem 0;
       border-bottom: 2px solid #2596be;
-      position: relative;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2000;
     }
     .header-container {
       max-width: 1200px;
@@ -60,10 +51,8 @@
       text-align: center;
       margin-bottom: 0.5rem;
     }
-    /* Navigation (Desktop) */
-    nav {
-      display: block;
-    }
+    /* Desktop Navigation */
+    nav { display: block; }
     nav ul {
       list-style: none;
       display: flex;
@@ -73,9 +62,12 @@
       font-weight: 600;
       transition: color 0.3s ease;
       color: #fff;
+      padding: 0.25rem 0.5rem;
     }
-    nav ul li a:hover {
-      color: #2596be;
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #145369;
+      border-radius: 3px;
     }
     /* Hamburger Menu (Mobile Only) */
     .hamburger {
@@ -88,10 +80,7 @@
     }
     /* Mobile Dropdown Menu */
     @media (max-width: 768px) {
-      .header-container {
-        flex-direction: row;
-        justify-content: center;
-      }
+      .header-container { flex-direction: row; justify-content: center; }
       header h1 {
         font-size: 2rem;
         width: 100%;
@@ -115,25 +104,17 @@
         padding: 0.5rem 0;
         display: none;
         flex-direction: column;
-        z-index: 1000;
+        z-index: 2100;
       }
-      nav.open {
-        display: flex;
-      }
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-      }
+      nav.open { display: flex; }
+      nav ul { flex-direction: column; align-items: center; gap: 0; }
       nav ul li {
         width: 100%;
         text-align: center;
         padding: 0.5rem 0;
         border-bottom: 1px solid #145369;
       }
-      nav ul li:last-child {
-        border-bottom: none;
-      }
+      nav ul li:last-child { border-bottom: none; }
     }
     /* Main Content */
     main {
@@ -144,9 +125,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
     }
-    section {
-      margin-bottom: 2rem;
-    }
+    section { margin-bottom: 2rem; }
     section h2 {
       color: #2596be;
       margin-bottom: 1rem;
@@ -155,17 +134,9 @@
       display: inline-block;
       padding-bottom: 0.2rem;
     }
-    section p {
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
+    section p { margin-bottom: 1rem; line-height: 1.8; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.5rem; }
     /* Call-to-Action Button */
     .cta-button {
       background: #2596be;
@@ -177,9 +148,7 @@
       transition: background 0.3s ease;
       font-weight: 600;
     }
-    .cta-button:hover {
-      background: #145369;
-    }
+    .cta-button:hover { background: #145369; }
     /* Footer */
     footer {
       background: #041014;
@@ -187,25 +156,37 @@
       text-align: center;
       border-top: 2px solid #2596be;
     }
-    footer a {
-      color: #2596be;
-      text-decoration: underline;
+    footer a { color: #2596be; text-decoration: underline; }
+    /* Back-to-Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2596be;
+      color: #041014;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      z-index: 2200;
     }
-    /* Responsive Slideshow height not needed on services page but can be adjusted if images are added */
+    #backToTop:hover { background: #145369; }
   </style>
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Fixed Header -->
   <header class="fade-in">
     <div class="header-container">
       <h1>Blaze Wallick Coaching</h1>
-      <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
-      <nav>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav role="navigation">
         <ul>
-          <li><a href="index.html#hero">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#hero" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -265,18 +246,45 @@
     </section>
   </main>
 
+  <!-- Back-to-Top Button -->
+  <button id="backToTop" aria-label="Back to top">&#8679;</button>
+
   <!-- Footer -->
-  <footer class="fade-in" style="animation-delay: 0.6s;">
+  <footer class="fade-in" style="animation-delay: 1.2s;">
     <p>&copy; 2025 Blaze Wallick Coaching. All Rights Reserved.</p>
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu -->
+  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top, and Smooth Scrolling -->
   <script>
+    // Hamburger menu toggle for mobile
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
     hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
+      const isOpen = nav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+    
+    // Auto-close nav on link click and active link highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+        }
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+    
+    // Back-to-Top Button Functionality
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
