@@ -117,12 +117,6 @@
         border-bottom: 1px solid #145369;
       }
       nav ul li:last-child { border-bottom: none; }
-      /* Adjust slideshow on mobile: use aspect ratio instead of fixed height */
-      .slideshow-container {
-          z-index: 1;
-          height: auto;
-          aspect-ratio: 16 / 9;
-      }
       /* Reduce header padding on mobile */
       header { padding: 0.8rem 0; }
       /* Adjust scroll offset for mobile */
@@ -154,16 +148,21 @@
     @keyframes fadeIn { from { opacity: 0.4; } to { opacity: 1; } }
     /* Main Content */
     main {
-      padding: 2rem 1rem;
+      /* Increased top padding on desktop for extra space below the header */
+      padding: 3rem 1rem 2rem;
       max-width: 1200px;
       margin: auto;
       background: #145369;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
     }
+    /* On mobile, reduce the top padding so no extra gap appears */
+    @media (max-width: 768px) {
+      main { padding: 1rem 1rem 2rem; }
+    }
     section { 
       margin-bottom: 2rem;
-      /* Ensure anchor targets are not hidden by the fixed header */
+      /* Ensure anchor targets aren’t hidden by the fixed header */
       scroll-margin-top: 120px;
     }
     section h2 {
