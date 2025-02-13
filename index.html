@@ -43,29 +43,26 @@
       background: #041014;
       padding: 1rem 0;
       border-bottom: 2px solid #2596be;
+      position: relative;
     }
-    header .container {
+    .header-container {
       max-width: 1200px;
       margin: auto;
       padding: 0 1rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
     }
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
       color: #fff;
     }
     /* Navigation */
-    nav {
-      width: 100%;
-    }
     nav ul {
       list-style: none;
       display: flex;
       gap: 1rem;
-      justify-content: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -75,7 +72,7 @@
     nav ul li a:hover {
       color: #2596be;
     }
-    /* Hamburger Menu (Mobile Only) */
+    /* Hamburger Menu */
     .hamburger {
       display: none;
       background: transparent;
@@ -83,6 +80,45 @@
       color: #fff;
       font-size: 2rem;
       cursor: pointer;
+    }
+    /* Mobile Dropdown Menu */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      /* Hide the normal nav on mobile */
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #041014;
+        border: 2px solid #2596be;
+        border-top: none;
+        display: none;
+        flex-direction: column;
+        z-index: 100;
+      }
+      nav.open {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #2596be;
+      }
+      nav ul li:last-child {
+        border-bottom: none;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
     }
     /* Slideshow Styles */
     .slideshow-container {
@@ -172,24 +208,8 @@
       color: #2596be;
       text-decoration: underline;
     }
-    /* Responsive */
+    /* Responsive Slideshow */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .hamburger {
-        display: block;
-      }
-      nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-      nav ul.open {
-        display: flex;
-      }
       .slideshow-container {
         height: 250px;
       }
@@ -199,9 +219,8 @@
 <body>
   <!-- Header Section -->
   <header class="fade-in">
-    <div class="container">
+    <div class="header-container">
       <h1>Blaze Wallick</h1>
-      <!-- Hamburger menu button for mobile -->
       <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
       <nav>
         <ul>
@@ -244,7 +263,7 @@
     <!-- Turning Point -->
     <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
+      <p>However, my corporate journey wasn’t without its challenges. I felt a lack of clear direction or purpose, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
     </section>
 
     <!-- Philosophy & How I Can Help -->
@@ -268,7 +287,7 @@
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Slideshow and Hamburger Toggle -->
+  <!-- JavaScript for Slideshow and Hamburger Menu -->
   <script>
     // Slideshow
     let slideIndex = 0;
@@ -282,13 +301,13 @@
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
       slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 5000); // Change slide every 5 seconds
+      setTimeout(showSlides, 5000);
     }
-    // Hamburger menu toggle
+    // Hamburger toggle
     const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
+    const nav = document.querySelector('nav');
     hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+      nav.classList.toggle('open');
     });
   </script>
 </body>
