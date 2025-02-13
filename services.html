@@ -58,6 +58,7 @@
       list-style: none;
       display: flex;
       gap: 1rem;
+      justify-content: center;
     }
     nav ul li a {
       font-weight: 600;
@@ -79,7 +80,7 @@
       font-size: 2rem;
       cursor: pointer;
     }
-    /* Mobile Dropdown Menu */
+    /* Mobile Dropdown Menu & Mobile Adjustments */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: row;
@@ -115,17 +116,26 @@
         border-bottom: 1px solid #145369;
       }
       nav ul li:last-child { border-bottom: none; }
+      /* Reduce header padding on mobile */
+      header { padding: 0.8rem 0; }
+      /* Adjust scroll offset for mobile */
+      section { scroll-margin-top: 100px; }
     }
     /* Main Content */
     main {
-      padding: 2rem 1rem;
+      /* Increased top padding so the fixed header won’t cover content */
+      padding: 2.5rem 1rem 2rem;
       max-width: 1200px;
       margin: auto;
       background: #145369;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border-radius: 8px;
     }
-    section { margin-bottom: 2rem; }
+    section { 
+      margin-bottom: 2rem;
+      /* Ensure anchor targets are not hidden by the fixed header */
+      scroll-margin-top: 120px;
+    }
     section h2 {
       color: #2596be;
       margin-bottom: 1rem;
@@ -287,7 +297,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
     
-    // Slideshow functionality
+    // Slideshow functionality (in case you add slides later)
     let slideIndex = 0;
     function showSlides() {
       const slides = document.getElementsByClassName("slide");
@@ -296,7 +306,9 @@
       }
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
+      if(slides[slideIndex - 1]) {
+        slides[slideIndex - 1].style.display = "block";
+      }
       setTimeout(showSlides, 5000);
     }
     showSlides();
