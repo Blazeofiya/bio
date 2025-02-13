@@ -18,6 +18,8 @@
       line-height: 1.6;
       background: #041014;
       color: #fff;
+      /* Add top padding to account for fixed header */
+      padding-top: 100px;
     }
     a {
       color: inherit;
@@ -38,12 +40,15 @@
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
     }
-    /* Header (Desktop defaults) */
+    /* Header - Fixed */
     header {
       background: #041014;
       padding: 1rem 0;
       border-bottom: 2px solid #2596be;
-      position: relative;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2000;
     }
     .header-container {
       max-width: 1200px;
@@ -104,19 +109,19 @@
         top: 50%;
         transform: translateY(-50%);
       }
-      /* Hide desktop nav and use dropdown instead */
+      /* Dropdown menu appears as a fixed panel with higher z-index */
       nav {
         position: absolute;
         top: calc(100% + 5px);
         right: 1rem;
         width: 200px;
-        background: #2596be; /* Blue background to match the accent */
+        background: #2596be;
         border: 2px solid #2596be;
         border-radius: 5px;
         padding: 0.5rem 0;
         display: none;
         flex-direction: column;
-        z-index: 1000; /* Ensure dropdown appears over slideshow */
+        z-index: 2100;
       }
       nav.open {
         display: flex;
@@ -135,9 +140,13 @@
       nav ul li:last-child {
         border-bottom: none;
       }
-      /* Ensure slideshow doesn’t cover the dropdown */
+      /* Adjust slideshow so it sits below the fixed header */
       .slideshow-container {
         z-index: 1;
+      }
+      /* Slideshow height on mobile */
+      .slideshow-container {
+        height: 250px;
       }
     }
     /* Slideshow Styles */
@@ -228,12 +237,6 @@
       color: #2596be;
       text-decoration: underline;
     }
-    /* Responsive Slideshow Height on Mobile */
-    @media (max-width: 768px) {
-      .slideshow-container {
-        height: 250px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -283,7 +286,7 @@
     <!-- Turning Point -->
     <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
+      <p>However, my corporate journey wasn’t without its challenges. Feeling a lack of direction, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
     </section>
 
     <!-- Philosophy & How I Can Help -->
