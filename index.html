@@ -164,8 +164,10 @@
         font-size: 2rem;
       }
       nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* keep buttons in a row */
+        flex-wrap: wrap;    /* allow wrapping if needed */
+        justify-content: center;
+        gap: 0.5rem;       /* slightly reduce gap for smaller screens */
       }
       .slideshow-container {
         height: 250px;
@@ -219,7 +221,7 @@
     <!-- Turning Point -->
     <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. Feeling a lack of purpose, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
+      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
     </section>
 
     <!-- Philosophy & How I Can Help -->
