@@ -43,20 +43,22 @@
       background: #041014;
       padding: 1rem 0;
       border-bottom: 2px solid #2596be;
+      position: relative;
     }
-    header .container {
+    .header-container {
       max-width: 1200px;
       margin: auto;
       padding: 0 1rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
     }
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
       color: #fff;
     }
+    /* Navigation */
     nav ul {
       list-style: none;
       display: flex;
@@ -69,6 +71,53 @@
     }
     nav ul li a:hover {
       color: #2596be;
+    }
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    /* Mobile Dropdown Menu */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #041014;
+        border: 2px solid #2596be;
+        border-top: none;
+        display: none;
+        flex-direction: column;
+        z-index: 100;
+      }
+      nav.open {
+        display: flex;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #2596be;
+      }
+      nav ul li:last-child {
+        border-bottom: none;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
     }
     /* Main Content */
     main {
@@ -94,7 +143,6 @@
       margin-bottom: 1rem;
       line-height: 1.8;
     }
-    /* List Styles */
     ul {
       margin-left: 1.5rem;
       margin-bottom: 1rem;
@@ -127,14 +175,9 @@
       color: #2596be;
       text-decoration: underline;
     }
-    /* Responsive */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2rem;
-      }
-      nav ul {
-        flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -142,8 +185,9 @@
 <body>
   <!-- Header Section -->
   <header class="fade-in">
-    <div class="container">
+    <div class="header-container">
       <h1>Blaze Wallick Coaching</h1>
+      <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
       <nav>
         <ul>
           <li><a href="index.html#hero">Home</a></li>
@@ -214,5 +258,14 @@
     <p>&copy; 2025 Blaze Wallick Coaching. All Rights Reserved.</p>
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
+
+  <!-- JavaScript for Hamburger Menu -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
