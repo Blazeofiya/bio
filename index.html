@@ -16,7 +16,7 @@
     body {
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
-      background: #041014; /* Dark background */
+      background: #041014;
       color: #fff;
     }
     a {
@@ -50,15 +50,18 @@
       margin: auto;
       padding: 0 1rem;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      position: relative;
     }
     header h1 {
       font-size: 2.5rem;
-      margin: 0;
       color: #fff;
     }
-    /* Navigation */
+    /* Navigation (Desktop) */
+    nav {
+      margin-left: auto;
+    }
     nav ul {
       list-style: none;
       display: flex;
@@ -72,7 +75,7 @@
     nav ul li a:hover {
       color: #2596be;
     }
-    /* Hamburger Menu */
+    /* Hamburger Menu (Mobile Only) */
     .hamburger {
       display: none;
       background: transparent;
@@ -83,18 +86,32 @@
     }
     /* Mobile Dropdown Menu */
     @media (max-width: 768px) {
+      .header-container {
+        justify-content: center;
+      }
+      header h1 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+      }
       .hamburger {
         display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
       }
-      /* Hide the normal nav on mobile */
+      /* Dropdown menu appears as a small panel */
       nav {
         position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #041014;
+        top: calc(100% + 5px);
+        right: 1rem;
+        left: auto;
+        width: 200px;
+        background: #2596be;
         border: 2px solid #2596be;
-        border-top: none;
+        border-radius: 5px;
+        padding: 0.5rem 0;
         display: none;
         flex-direction: column;
         z-index: 100;
@@ -111,13 +128,13 @@
         width: 100%;
         text-align: center;
         padding: 0.5rem 0;
-        border-bottom: 1px solid #2596be;
+        border-bottom: 1px solid #145369;
       }
       nav ul li:last-child {
         border-bottom: none;
       }
-      header h1 {
-        font-size: 2rem;
+      .slideshow-container {
+        height: 250px;
       }
     }
     /* Slideshow Styles */
@@ -208,12 +225,6 @@
       color: #2596be;
       text-decoration: underline;
     }
-    /* Responsive Slideshow */
-    @media (max-width: 768px) {
-      .slideshow-container {
-        height: 250px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -263,7 +274,7 @@
     <!-- Turning Point -->
     <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
-      <p>However, my corporate journey wasn’t without its challenges. I felt a lack of clear direction or purpose, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
+      <p>However, my corporate journey wasn’t without its challenges. Burnout set in, and when my father was diagnosed with Parkinson’s in early 2024, I was forced to reevaluate my life priorities. I stepped away from my demanding job, choosing instead to spend time with my family and focus on my own well-being. During this period, I rediscovered the joy of hands-on learning—making soap, tending a garden, playing basketball, and even exploring zen philosophies during a month-long stay in Tokyo.</p>
     </section>
 
     <!-- Philosophy & How I Can Help -->
@@ -293,9 +304,8 @@
     let slideIndex = 0;
     showSlides();
     function showSlides() {
-      let i;
       const slides = document.getElementsByClassName("slide");
-      for (i = 0; i < slides.length; i++) {
+      for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
       slideIndex++;
@@ -303,7 +313,7 @@
       slides[slideIndex - 1].style.display = "block";
       setTimeout(showSlides, 5000);
     }
-    // Hamburger toggle
+    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
     hamburger.addEventListener('click', () => {
