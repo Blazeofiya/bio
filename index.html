@@ -42,7 +42,6 @@
       margin: auto;
       padding: 0 1rem;
       display: flex;
-      /* Desktop: Column layout */
       flex-direction: column;
       align-items: center;
       position: relative;
@@ -122,18 +121,16 @@
         border-bottom: 1px solid #145369;
       }
       nav ul li:last-child { border-bottom: none; }
-      /* Reduce header padding on mobile */
       header { padding: 0.8rem 0; }
-      /* Adjust scroll offset for mobile */
       section { scroll-margin-top: 100px; }
     }
     /* Slideshow Styles */
     .slideshow-container {
       position: relative;
       width: 100%;
-      max-width: 1200px; /* Limit width on larger screens */
+      max-width: 1200px;
       margin: 0 auto;
-      aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border: 2px solid #2596be;
       border-radius: 8px;
@@ -220,7 +217,7 @@
       <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       <nav role="navigation">
         <ul>
-          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#slideshow-section" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -229,12 +226,8 @@
     </div>
   </header>
 
-  <!-- Hero Section with Slideshow and Tagline -->
-  <section id="hero" class="fade-in" style="animation-delay: 0.2s;">
-    <div class="hero-text" style="text-align: center; padding: 2rem 1rem;">
-      <h2>Empowering You to Live a Balanced, Purpose-Driven Life</h2>
-      <p>Welcome to a space where transformation begins—where you can reclaim your time, energy, and focus to live the life you envision.</p>
-    </div>
+  <!-- Slideshow Section -->
+  <section id="slideshow-section" class="fade-in" style="animation-delay: 0.2s;">
     <div class="slideshow-container" id="slideshow">
       <div class="slide fade">
         <img src="image1.png" alt="Slide 1">
@@ -253,14 +246,20 @@
 
   <!-- Main Content -->
   <main>
-    <!-- My Journey -->
+    <!-- Header -->
+    <section id="about" class="fade-in" style="animation-delay: 0.2s;">
+      <h2>Empowering You to Live a Balanced, Purpose-Driven Life</h2>
+      <p>Welcome to a space where transformation begins—where you can reclaim your time, energy, and focus to live the life you envision.</p>
+    </section>
+
+    <!-- My Journey Section -->
     <section id="about" class="fade-in" style="animation-delay: 0.4s;">
       <h2>My Journey</h2>
       <p>As a child, I watched my father devote himself to work—even on weekends—in pursuit of a better life for our family. His steadfast resolve amid personal challenges taught me to embrace forgiveness, appreciate small blessings, and seek balance. Whether on camping trips, gathered around a campfire, or simply tossing a football, he showed me that life isn’t solely about the daily grind—it’s also about nurturing close relationships, growing as individuals, and living with deliberate purpose.</p>
       <p>After earning a business degree from the University of Central Florida and spending a transformative year in Barcelona—where I embraced a Mediterranean culture that champions balanced living—I returned to the fast-paced corporate world as an insurance underwriter. There, I discovered that small, thoughtful changes could dramatically improve efficiency and fulfillment.</p>
     </section>
 
-    <!-- A Turning Point -->
+    <!-- A Turning Point Section -->
     <section id="turning-point" class="fade-in" style="animation-delay: 0.6s;">
       <h2>A Turning Point</h2>
       <p>My corporate journey wasn’t without its challenges. Facing the bureaucratic hurdles of a large organization and coping with my father’s Parkinson’s diagnosis in early 2024 forced me to reassess my priorities. I chose to step away from my job, dedicating time to family and personal well-being. During this period, I rediscovered the joy of hands-on learning—whether it was making soap, learning to cut my own hair, tending a garden, playing basketball, or even exploring Zen philosophies during a month-long stay in Japan.</p>
@@ -273,7 +272,7 @@
       <p>Whether you’re seeking to enhance personal well-being, boost workplace productivity, or optimize business operations, my personalized, hands-on approach cuts through the noise and overthinking. Together, we’ll focus on strategies that allow you to invest more in family, health, and the pursuits that truly matter.</p>
     </section>
 
-    <!-- Let’s Connect -->
+    <!-- Let’s Connect Section -->
     <section id="contact" class="fade-in" style="animation-delay: 1s;">
       <h2>Let’s Connect</h2>
       <p>Ready to reclaim control over your time and energy? I’m here to help you make meaningful, lasting changes—one small step at a time.</p>
@@ -290,7 +289,7 @@
     <p>Email: <a href="mailto:blaze@blazewallick.com">blaze@blazewallick.com</a></p>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top, and Smooth Scrolling -->
+  <!-- JavaScript for Hamburger Menu, Active Links, Back-to-Top, and Slideshow -->
   <script>
     // Hamburger menu toggle for mobile
     const hamburger = document.querySelector('.hamburger');
