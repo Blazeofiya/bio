@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0d0b1f" />
 
+<!-- Defense-in-depth Content Security Policy: only self + pinned CDN scripts / Google Fonts;
+     no network calls, no framing sources, no plugins. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
 <!--
   ┌─────────────────────────────────────────────────────────────────────┐
   │  BLAZE WALLICK — personal "let's connect" page (QR-code landing)      │
@@ -400,10 +405,11 @@ footer .heart{color:var(--ember)}
 </main>
 
 <!-- ===================== libraries (CDN, no build step) ===================== -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<!-- Pinned with Subresource Integrity (SRI) so a tampered CDN file will not execute -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha384-xb96EMJeax+NLXMC88ZBa1xAeAW+kn+horHh/zFlbMLG2UPWhMJJSlv7fi57hS+Q"></script>
 
 <script defer>
 document.getElementById('yr').textContent = new Date().getFullYear();
