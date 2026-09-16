@@ -131,20 +131,17 @@ section{padding:clamp(70px,12vh,140px) 0;position:relative}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- photos ---------- */
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(14px,2vw,26px)}
-.frame{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--stroke);background:var(--ink-2)}
-.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);will-change:transform}
-.frame:hover img{transform:scale(1.05)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr}}
+.frame{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--stroke);
+  aspect-ratio:3/4;background:radial-gradient(120% 120% at 50% 0%,#1a1638,#0b0920)}
+/* contain = show the ENTIRE photo, never crop faces; 3:4 photos fill edge-to-edge,
+   taller ones sit on a subtle matte */
+.frame img{width:100%;height:100%;object-fit:contain;transition:transform 1.1s var(--ease)}
+.frame:hover img{transform:scale(1.03)}
 .frame figcaption{position:absolute;left:16px;bottom:14px;font-size:.82rem;font-weight:500;color:#fff;
-  background:rgba(13,11,31,.55);backdrop-filter:blur(6px);padding:.35em .8em;border-radius:100px;border:1px solid var(--stroke)}
-.frame.s5{grid-column:span 5;aspect-ratio:4/5}
-.frame.s7{grid-column:span 7;aspect-ratio:7/5}
-.frame.s6{grid-column:span 6;aspect-ratio:1/1}
-.frame.s12{grid-column:span 12;aspect-ratio:16/7}
-@media(max-width:720px){
-  .frame.s5,.frame.s6,.frame.s7,.frame.s12{grid-column:span 12}
-  .frame.s5{aspect-ratio:4/5}.frame.s6,.frame.s7,.frame.s12{aspect-ratio:4/3}
-}
+  background:rgba(13,11,31,.62);backdrop-filter:blur(6px);padding:.35em .8em;border-radius:100px;border:1px solid var(--stroke)}
 
 /* ---------- about / community ---------- */
 .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:center}
@@ -234,45 +231,45 @@ footer .heart{color:var(--ember)}
         Any slot whose file is missing hides itself automatically (onerror), so the
         grid never looks broken. Swap files / captions freely; keep the file names.
       -->
-      <figure class="frame s7 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo6.webp" type="image/webp" />
-          <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
+          <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Cleaned up 🌴</figcaption>
       </figure>
-      <figure class="frame s5 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo5.webp" type="image/webp" />
           <img src="photos/photo5.jpg" alt="Blaze at a tech conference" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Nerding out at a tech conference 👋</figcaption>
       </figure>
-      <figure class="frame s5 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo1.webp" type="image/webp" />
           <img src="photos/photo1.jpg" alt="Blaze eating mangosteen by the water" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Trying every fruit I can find 🍈</figcaption>
       </figure>
-      <figure class="frame s7 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo3.webp" type="image/webp" />
           <img src="photos/photo3.jpg" alt="Blaze wandering through a shrine gate in Japan" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Wandering, somewhere in Japan ⛩️</figcaption>
       </figure>
-      <figure class="frame s6 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo4.webp" type="image/webp" />
           <img src="photos/photo4.jpg" alt="Blaze with a friend at a cafe" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Good people, good coffee ☕</figcaption>
       </figure>
-      <figure class="frame s6 reveal" data-parallax>
+      <figure class="frame reveal">
         <picture>
           <source srcset="photos/photo2.webp" type="image/webp" />
-          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
+          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Borrowing someone's dog 🐾</figcaption>
       </figure>
