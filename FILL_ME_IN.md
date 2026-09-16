@@ -4,12 +4,32 @@ Everything is in one file: **`index.html`**. Open it and search for `EDIT:` to j
 No build step, no framework install — just edit and push. GitHub Pages redeploys automatically.
 
 ## 1. Photos  📸
-Your web-optimized photos live in **`/photos`** (`photo1`, `photo2`, `photo3`, each as `.webp` + `.jpg`).
-To change a photo, replace those files and keep the same names. If you only have a new `.jpg`,
-that's fine — the page falls back to `.jpg` when there's no `.webp`.
+The gallery holds **six** photos, in `/photos` as `photo1 … photo6` (each `.webp` + `.jpg`).
+Any slot whose file is missing **hides itself automatically**, so the grid never looks broken.
 
-> The original full-size images you provided were ~11 MB total (too heavy for a phone on cellular).
-> I resized/compressed them to ~1 MB total. Captions are under each `<figcaption>` in `index.html`.
+**Current status:** only `photo3` (the Japan shrine shot — the one you said to keep) is in place.
+The other five come from images you pasted into chat, and pasted images don't reach the build
+environment as files — so I couldn't drop them into `/photos` myself. Getting them in takes ~30s:
+
+### How to add your 5 photos (pick one)
+- **Easiest — GitHub web:** open the repo → the `photos/` folder → **Add file ▸ Upload files**,
+  drag your originals in, and commit to branch `claude/fervent-brahmagupta-prmb7o`. Then tell me
+  "photos uploaded" and I'll auto-resize/compress them into the right `photoN.webp/.jpg` names.
+- **Or** commit them yourself with these exact names (any size — but smaller loads faster):
+  `photo1.jpg photo2.jpg photo4.jpg photo5.jpg photo6.jpg`.
+
+### The mapping I built the captions around
+| Slot | Photo you sent | Caption |
+|------|----------------|---------|
+| photo1 | Eating an exotic fruit on the dock | "Trying every fruit I can find 🍈" |
+| photo2 | Holding the white French bulldog | "Borrowing someone's dog 🐾" |
+| photo3 | **(kept)** Japan shrine gate | "Wandering, somewhere in Japan ⛩️" |
+| photo4 | At the cafe with a friend | "Good people, good coffee ☕" |
+| photo5 | At the tech conference | "Nerding out at a tech conference 👋" |
+| photo6 | Balcony portrait (patterned shirt) | "Cleaned up 🌴" |
+
+Swap any caption in `index.html` (search the alt text). Photos are auto-optimized to ~1 MB total
+so the page stays fast on a phone.
 
 ## 2. Your name & tagline  ✍️  → search `EDIT: HERO`
 - Headline text and the short intro paragraph (the "lede").
