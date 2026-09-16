@@ -237,7 +237,7 @@ footer .heart{color:var(--ember)}
       <figure class="frame s7 reveal" data-parallax>
         <picture>
           <source srcset="photos/photo6.webp" type="image/webp" />
-          <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" onerror="this.closest('.frame').remove()" />
+          <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Cleaned up 🌴</figcaption>
       </figure>
@@ -272,7 +272,7 @@ footer .heart{color:var(--ember)}
       <figure class="frame s6 reveal" data-parallax>
         <picture>
           <source srcset="photos/photo2.webp" type="image/webp" />
-          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" onerror="this.closest('.frame').remove()" />
+          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Borrowing someone's dog 🐾</figcaption>
       </figure>
@@ -282,7 +282,7 @@ footer .heart{color:var(--ember)}
   <!-- ============================ ABOUT / COMMUNITY ============================ -->
   <!-- EDIT: ABOUT — your story and the kind of community you're building -->
   <section id="about" class="wrap">
-    <div class="about-grid">
+    <div class="about-grid" style="grid-template-columns:1fr;max-width:760px">
       <div class="reveal">
         <span class="eyebrow">Why I made this page</span>
         <h2 style="font-size:clamp(2rem,6vw,3.4rem);margin:.35em 0 .6em">Community over contacts.</h2>
@@ -304,11 +304,6 @@ footer .heart{color:var(--ember)}
           <span class="pill">🏋️ Fitness</span>
           <span class="pill">✈️ Travel</span>
         </div>
-      </div>
-      <div class="values reveal">
-        <div class="value"><div class="ic">🤝</div><h3>Show up for people</h3><p>Real community is built one genuine hello at a time.</p></div>
-        <div class="value"><div class="ic">🔥</div><h3>Chase the interesting</h3><p>Curiosity is the fastest way to a real friendship.</p></div>
-        <div class="value"><div class="ic">🌱</div><h3>Grow together</h3><p>The best rooms are the ones where everyone levels up.</p></div>
       </div>
     </div>
   </section>
@@ -338,12 +333,12 @@ footer .heart{color:var(--ember)}
 
       <article class="qcard reveal"><div class="qcard-inner">
         <div class="qface qfront"><div class="qnum">03</div><div><div class="qtag">Sunday</div><div class="qtext">My perfect Sunday looks like…</div></div><div class="qhint">tap to reveal →</div></div>
-        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">Tracking down a fruit variety I've never tried and eating it in the sun.</div></div>
+        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">Tracking down a fruit variety I've never tried and eating it under the sun.</div></div>
       </div></article>
 
       <article class="qcard reveal"><div class="qcard-inner">
         <div class="qface qfront"><div class="qnum">04</div><div><div class="qtag">Obsession</div><div class="qtext">What could I talk about for three hours straight?</div></div><div class="qhint">tap to reveal →</div></div>
-        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">The history of nutmeg. Genuinely — it's wilder than you'd think. Ask me anything.</div></div>
+        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">The history of nutmeg. Genuinely devastating. Ask me anything.</div></div>
       </div></article>
 
       <article class="qcard reveal"><div class="qcard-inner">
@@ -352,8 +347,8 @@ footer .heart{color:var(--ember)}
       </div></article>
 
       <article class="qcard reveal"><div class="qcard-inner">
-        <div class="qface qfront"><div class="qnum">06</div><div><div class="qtag">The ask</div><div class="qtext">If we connect again, we're definitely going to…</div></div><div class="qhint">tap to reveal →</div></div>
-        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">…play chess. Bring your best opening — I'll bring the coffee.</div></div>
+        <div class="qface qfront"><div class="qnum">06</div><div><div class="qtag">The ask</div><div class="qtext">If we meet again, we're definitely going to…</div></div><div class="qhint">tap to reveal →</div></div>
+        <div class="qface qback"><div class="qtag">My answer</div><div class="qans">…drink tea (or coffee if you're into that) over a game of chess.</div></div>
       </div></article>
     </div>
   </section>
@@ -385,7 +380,7 @@ footer .heart{color:var(--ember)}
           </a>
         </div>
         <div class="foot-row">
-          <button class="btn solid" id="saveContact">📇 Save my contact (.vcf)</button>
+          <button class="btn solid" id="saveContact">📇 Save my contact</button>
           <a class="btn" href="#photos">Back to the top ↑</a>
         </div>
       </div>
