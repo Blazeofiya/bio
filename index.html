@@ -73,7 +73,7 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:900;line-height:1.02;l
 /* ---------- scroll progress (CSS scroll-driven, progressive enhancement) ---------- */
 .progress{
   position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;z-index:90;
-  background:var(--ember);
+  background:linear-gradient(90deg,var(--amber),var(--ember) 55%,#6d1f10);
   transform:scaleX(0);
 }
 @supports (animation-timeline:scroll()){
@@ -141,9 +141,15 @@ section{padding:clamp(70px,12vh,140px) 0;position:relative}
 .frame.s7{grid-column:span 7;aspect-ratio:7/5}
 .frame.s6{grid-column:span 6;aspect-ratio:1/1}
 .frame.s12{grid-column:span 12;aspect-ratio:16/7}
+/* photo6 (balcony): square on desktop, like "Good people, good coffee" */
+.frame.f6{aspect-ratio:1/1}
+/* photo5 shares photo6's row — match its height so the row is even */
+.frame.f5{aspect-ratio:5/7}
 @media(max-width:720px){
   .frame.s5,.frame.s6,.frame.s7,.frame.s12{grid-column:span 12}
   .frame.s5{aspect-ratio:4/5}.frame.s6,.frame.s7,.frame.s12{aspect-ratio:4/3}
+  /* photo6 & photo2 on mobile: match "Trying every fruit I can find" (4/5) */
+  .frame.f6,.frame.f2{aspect-ratio:4/5}
 }
 
 /* ---------- about / community ---------- */
@@ -234,14 +240,14 @@ footer .heart{color:var(--ember)}
         Any slot whose file is missing hides itself automatically (onerror), so the
         grid never looks broken. Swap files / captions freely; keep the file names.
       -->
-      <figure class="frame s7 reveal" data-parallax>
+      <figure class="frame s7 f6 reveal" data-parallax>
         <picture>
           <source srcset="photos/photo6.webp" type="image/webp" />
           <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Cleaned up 🌴</figcaption>
       </figure>
-      <figure class="frame s5 reveal" data-parallax>
+      <figure class="frame s5 f5 reveal" data-parallax>
         <picture>
           <source srcset="photos/photo5.webp" type="image/webp" />
           <img src="photos/photo5.jpg" alt="Blaze at a tech conference" loading="lazy" onerror="this.closest('.frame').remove()" />
@@ -269,7 +275,7 @@ footer .heart{color:var(--ember)}
         </picture>
         <figcaption>Good people, good coffee ☕</figcaption>
       </figure>
-      <figure class="frame s6 reveal" data-parallax>
+      <figure class="frame s6 f2 reveal" data-parallax>
         <picture>
           <source srcset="photos/photo2.webp" type="image/webp" />
           <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" style="object-position:center top" onerror="this.closest('.frame').remove()" />
@@ -310,7 +316,7 @@ footer .heart{color:var(--ember)}
 
   <!-- ============================ QUESTIONS ============================ -->
   <!-- EDIT: QUESTIONS — tap a card to flip. Fill in YOUR real answers below. -->
-  <section id="questions" class="wrap">
+  <section id="questions" class="wrap" style="margin-top:clamp(24px,8vh,90px)">
     <div class="section-head reveal">
       <span class="eyebrow">Tap to flip · a little unfiltered</span>
       <h2>Six questions,<br />zero small talk.</h2>
