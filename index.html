@@ -73,7 +73,7 @@ h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:900;line-height:1.02;l
 /* ---------- scroll progress (CSS scroll-driven, progressive enhancement) ---------- */
 .progress{
   position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;z-index:90;
-  background:linear-gradient(90deg,var(--ember),var(--amber),var(--teal),var(--violet));
+  background:var(--ember);
   transform:scaleX(0);
 }
 @supports (animation-timeline:scroll()){
@@ -236,24 +236,24 @@ footer .heart{color:var(--ember)}
       -->
       <figure class="frame s7 reveal" data-parallax>
         <picture>
-          <source srcset="photos/photo1.webp" type="image/webp" />
-          <img src="photos/photo1.jpg" alt="Blaze eating an exotic fruit by the water" loading="lazy" onerror="this.closest('.frame').remove()" />
-        </picture>
-        <figcaption>Trying every fruit I can find 🍈</figcaption>
-      </figure>
-      <figure class="frame s5 reveal" data-parallax>
-        <picture>
-          <source srcset="photos/photo2.webp" type="image/webp" />
-          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" onerror="this.closest('.frame').remove()" />
-        </picture>
-        <figcaption>Borrowing someone's dog 🐾</figcaption>
-      </figure>
-      <figure class="frame s5 reveal" data-parallax>
-        <picture>
           <source srcset="photos/photo6.webp" type="image/webp" />
           <img src="photos/photo6.jpg" alt="Blaze, portrait" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
         <figcaption>Cleaned up 🌴</figcaption>
+      </figure>
+      <figure class="frame s5 reveal" data-parallax>
+        <picture>
+          <source srcset="photos/photo5.webp" type="image/webp" />
+          <img src="photos/photo5.jpg" alt="Blaze at a tech conference" loading="lazy" onerror="this.closest('.frame').remove()" />
+        </picture>
+        <figcaption>Nerding out at a tech conference 👋</figcaption>
+      </figure>
+      <figure class="frame s5 reveal" data-parallax>
+        <picture>
+          <source srcset="photos/photo1.webp" type="image/webp" />
+          <img src="photos/photo1.jpg" alt="Blaze eating an exotic fruit by the water" loading="lazy" onerror="this.closest('.frame').remove()" />
+        </picture>
+        <figcaption>Trying every fruit I can find 🍈</figcaption>
       </figure>
       <figure class="frame s7 reveal" data-parallax>
         <picture>
@@ -271,10 +271,10 @@ footer .heart{color:var(--ember)}
       </figure>
       <figure class="frame s6 reveal" data-parallax>
         <picture>
-          <source srcset="photos/photo5.webp" type="image/webp" />
-          <img src="photos/photo5.jpg" alt="Blaze at a tech conference" loading="lazy" onerror="this.closest('.frame').remove()" />
+          <source srcset="photos/photo2.webp" type="image/webp" />
+          <img src="photos/photo2.jpg" alt="Blaze with a French bulldog" loading="lazy" onerror="this.closest('.frame').remove()" />
         </picture>
-        <figcaption>Nerding out at a tech conference 👋</figcaption>
+        <figcaption>Borrowing someone's dog 🐾</figcaption>
       </figure>
     </div>
   </section>
