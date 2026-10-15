@@ -525,7 +525,9 @@ window.addEventListener('load',()=>{
   try{
     if(window.SplitText && line1){
       gsap.registerPlugin(SplitText);
-      const split=new SplitText(line1,{type:'chars'});
+      // 'words,chars' keeps whole words together so they only wrap at spaces
+      // (plain 'chars' let the line break mid-word, e.g. "somet / hing")
+      const split=new SplitText(line1,{type:'words,chars'});
       gsap.from(split.chars,{yPercent:120,opacity:0,rotateX:-40,stagger:.018,duration:.9,ease:'back.out(1.6)',delay:.15});
     }else if(line1){
       gsap.from(line1,{y:40,opacity:0,duration:1,ease:'power3.out'});
