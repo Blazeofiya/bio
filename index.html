@@ -402,6 +402,9 @@ footer .heart{color:var(--ember)}
           </a>
         </div>
         <div class="foot-row">
+          <!-- Shown only in piano mode; pre-fills an email to book a free intro lesson. -->
+          <a class="btn solid" id="bookLesson" style="display:none"
+             href="mailto:blaze.wallick@gmail.com?subject=Free%20intro%20piano%20lesson&amp;body=Hi%20Blaze%2C%20I'd%20love%20to%20book%20a%20free%20intro%20piano%20lesson.">🎹 Book a free intro lesson</a>
           <button class="btn solid" id="saveContact">📇 Save my contact</button>
           <a class="btn" href="#photos">Back to the top ↑</a>
         </div>
@@ -488,6 +491,7 @@ document.querySelectorAll('.qcard').forEach(card=>{
   const sub=document.getElementById('contactSub');
   const email=document.getElementById('emailLink');
   const pianoInfo=document.getElementById('pianoInfo');
+  const bookLesson=document.getElementById('bookLesson');
   document.querySelectorAll('[data-intent]').forEach(b=>{
     b.addEventListener('click',()=>{
       const kind=b.dataset.intent, m=intents[kind]; if(!m) return;
@@ -495,6 +499,7 @@ document.querySelectorAll('.qcard').forEach(card=>{
       if(badge){ badge.textContent=m.badge; badge.style.display='inline-flex'; }
       if(sub){ sub.textContent=m.sub; }
       if(pianoInfo){ pianoInfo.style.display = kind==='piano' ? 'inline-flex' : 'none'; }
+      if(bookLesson){ bookLesson.style.display = kind==='piano' ? 'inline-flex' : 'none'; }
       if(email){ email.setAttribute('href','mailto:blaze.wallick@gmail.com?subject='+encodeURIComponent(m.subject)); }
     });
   });
