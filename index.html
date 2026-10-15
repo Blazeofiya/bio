@@ -378,6 +378,10 @@ footer .heart{color:var(--ember)}
         <h2>Let's stay in touch.</h2>
         <p id="intentBadge" class="pill" style="display:none;margin-bottom:1em"></p>
         <p class="sub" id="contactSub">No pressure, no pitch. Send a hello, connect on LinkedIn, or save my contact for later.</p>
+        <!-- Shown only when someone picks "Piano lessons". EDIT: your real format/rates. -->
+        <p id="pianoInfo" style="display:none;align-items:center;gap:.5em;color:var(--amber);font-weight:600;font-size:.98rem;margin:-.4em 0 1.4em">
+          🎹 Beginners to intermediate · in-person or online · flexible scheduling
+        </p>
         <div class="links">
           <!-- EDIT: CONTACT — set your real email, LinkedIn URL, and phone number -->
           <a class="link" id="emailLink" href="mailto:blaze.wallick@gmail.com">
@@ -440,6 +444,13 @@ document.querySelectorAll('.qcard').forEach(card=>{
   const PHONE_B64='KzEtNTYxLTc3NC01ODI2';   // your number, base64-encoded (see EDIT note above)
   function downloadVCard(){
     const tel=atob(PHONE_B64);
+    // Note reflects why they reached out (set by the intent chooser), if chosen.
+    const notes={
+      piano:'Met via the piano lessons page — let\'s set up a lesson.',
+      network:'Met via the community page — let\'s build something good.'
+    };
+    const note=notes[document.documentElement.dataset.intent]
+      || 'We connected via my QR page — let\'s build something good.';
     const vcf=[
       'BEGIN:VCARD','VERSION:3.0',
       'FN:Blaze Wallick','N:Wallick;Blaze;;;',
@@ -447,7 +458,7 @@ document.querySelectorAll('.qcard').forEach(card=>{
       'TEL;TYPE=CELL:'+tel,
       'URL:https://blazewallick.com',
       'URL;TYPE=LinkedIn:https://www.linkedin.com/in/blaze-wallick',
-      'NOTE:We connected via my QR page — let\'s build something good.',
+      'NOTE:'+note,
       'END:VCARD'
     ].join('\r\n');
     const blob=new Blob([vcf],{type:'text/vcard'});
@@ -476,11 +487,14 @@ document.querySelectorAll('.qcard').forEach(card=>{
   const badge=document.getElementById('intentBadge');
   const sub=document.getElementById('contactSub');
   const email=document.getElementById('emailLink');
+  const pianoInfo=document.getElementById('pianoInfo');
   document.querySelectorAll('[data-intent]').forEach(b=>{
     b.addEventListener('click',()=>{
-      const m=intents[b.dataset.intent]; if(!m) return;
+      const kind=b.dataset.intent, m=intents[kind]; if(!m) return;
+      document.documentElement.dataset.intent=kind;   // read by the vCard note below
       if(badge){ badge.textContent=m.badge; badge.style.display='inline-flex'; }
       if(sub){ sub.textContent=m.sub; }
+      if(pianoInfo){ pianoInfo.style.display = kind==='piano' ? 'inline-flex' : 'none'; }
       if(email){ email.setAttribute('href','mailto:blaze.wallick@gmail.com?subject='+encodeURIComponent(m.subject)); }
     });
   });
