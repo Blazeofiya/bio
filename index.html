@@ -417,9 +417,9 @@ footer .heart{color:var(--ember)}
           </a>
         </div>
         <div class="foot-row">
-          <!-- Shown only in piano mode; pre-fills an email to book a $25 intro lesson. -->
-          <a class="btn solid" id="bookLesson" style="display:none"
-             href="mailto:blaze.wallick@gmail.com?subject=Intro%20piano%20lesson%20(%2425)&amp;body=Hi%20Blaze%2C%20I'd%20like%20to%20book%20an%20intro%20piano%20lesson%20(%2425).">🎹 Book an intro lesson · $25</a>
+          <!-- Shown only in piano mode. The SMS href is assembled at runtime from the
+               encoded number (kept out of the page source), same as the contact card. -->
+          <a class="btn solid" id="bookLesson" style="display:none">🎹 Book an intro lesson · $25</a>
           <button class="btn solid" id="saveContact">📇 Save my contact</button>
           <a class="btn" href="#photos">Back to the top ↑</a>
         </div>
@@ -489,6 +489,14 @@ document.querySelectorAll('.qcard').forEach(card=>{
   if(pc){
     pc.addEventListener('click',downloadVCard);
     pc.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();downloadVCard();} });
+  }
+  // Book-intro-lesson button: prefill a text message to Blaze's number, assembled
+  // at runtime from the encoded number so it never appears in the page source.
+  const book=document.getElementById('bookLesson');
+  if(book){
+    const tel=atob(PHONE_B64).replace(/[^+\d]/g,'');
+    const body=encodeURIComponent("Hi Blaze, I'd like to book an intro piano lesson ($25).");
+    book.setAttribute('href','sms:'+tel+'?&body='+body);
   }
 })();
 
