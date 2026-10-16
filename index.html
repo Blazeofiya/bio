@@ -108,6 +108,14 @@ main{position:relative;z-index:2}
 .btn.solid:hover{filter:brightness(1.05)}
 .btn.cool{background:linear-gradient(120deg,var(--teal),var(--violet));border:none;color:#06201c}
 .btn.cool:hover{filter:brightness(1.05)}
+/* piano intro-lesson price + discount */
+.price-line{display:flex;align-items:center;flex-wrap:wrap;gap:.5em;font-weight:700}
+.price-line .was{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ember);font-size:1.05rem;font-weight:600}
+.price-line .now{color:var(--amber);font-size:1.6rem;line-height:1}
+.price-line .for{color:var(--muted);font-weight:500;font-size:.95rem}
+.deal-badge{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:.3em .7em;border-radius:100px;background:linear-gradient(120deg,var(--ember),var(--amber));color:#2a1200}
+.piano-details{color:var(--muted);font-weight:500;font-size:.92rem;margin-top:.55em}
 
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:14vh 0 8vh;position:relative}
@@ -380,9 +388,15 @@ footer .heart{color:var(--ember)}
         <p id="intentBadge" class="pill" style="display:none;margin-bottom:1em"></p>
         <p class="sub" id="contactSub">No pressure, no pitch. Send a hello, connect on LinkedIn, or save my contact for later.</p>
         <!-- Shown only when someone picks "Piano lessons". EDIT: your real format/rates. -->
-        <p id="pianoInfo" style="display:none;align-items:center;gap:.5em;color:var(--amber);font-weight:600;font-size:.98rem;margin:-.4em 0 1.4em">
-          🎹 Beginners to intermediate · in-person or online · flexible scheduling
-        </p>
+        <div id="pianoInfo" style="display:none;margin:-.2em 0 1.5em">
+          <div class="price-line">
+            <span class="was">$42</span>
+            <span class="now">$25</span>
+            <span class="for">intro lesson</span>
+            <span class="deal-badge">40% off</span>
+          </div>
+          <div class="piano-details">🎹 Beginners to intermediate · in-person or online · flexible scheduling</div>
+        </div>
         <div class="links">
           <!-- EDIT: CONTACT — set your real email, LinkedIn URL, and phone number -->
           <a class="link" id="emailLink" href="mailto:blaze.wallick@gmail.com">
@@ -499,7 +513,7 @@ document.querySelectorAll('.qcard').forEach(card=>{
       document.documentElement.dataset.intent=kind;   // read by the vCard note below
       if(badge){ badge.textContent=m.badge; badge.style.display='inline-flex'; }
       if(sub){ sub.textContent=m.sub; }
-      if(pianoInfo){ pianoInfo.style.display = kind==='piano' ? 'inline-flex' : 'none'; }
+      if(pianoInfo){ pianoInfo.style.display = kind==='piano' ? 'block' : 'none'; }
       if(bookLesson){ bookLesson.style.display = kind==='piano' ? 'inline-flex' : 'none'; }
       if(email){ email.setAttribute('href','mailto:blaze.wallick@gmail.com?subject='+encodeURIComponent(m.subject)); }
     });
